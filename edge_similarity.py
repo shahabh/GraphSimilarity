@@ -166,7 +166,7 @@ if __name__ == "__main__":
     data_folder = 'data/'
     file_names = ['g1.csv', 'g2.csv', 'g3.csv']
 
-    use_all_nodes = False
+    use_all_nodes = True
     diff_threshold = 0.1
     
     save = True

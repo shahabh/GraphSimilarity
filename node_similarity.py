@@ -168,26 +168,22 @@ class NodeSimilarity():
         plt.close()
         
         
-if __name__ == "__main__":
-    # file_names = ['Soma_AA_New.csv', 'Soma_NHW_New.csv']
-    # diff_threshold=0.1
-    
-    file_names = ['G_Sim_2137_alpha0.11.csv','G_Sim_2137_alpha0.12.csv',
-                  'G_Sim_2137_alpha0.14.csv','G_Sim_2137_alpha0.15.csv']
-    diff_threshold=0.1
-    
-    #file_names = ['g1.csv', 'g2.csv']
-    #diff_threshold=0.06
+if __name__ == "__main__": 
+    data_folder = 'data/'
+    file_names = ['g1.csv', 'g2.csv', 'g3.csv']
+    diff_threshold=0.06
     
     save = True
     show = False
     
     for i in range(len(file_names)):
+        name1 = file_names[i]
         g1 = gr()
-        g1.load_from_file(file_names[i])
+        g1.load_from_file(f'{data_folder}/{name1}')
         for j in range(i+1, len(file_names)):
+            name2 = file_names[j]
             g2 = gr()
-            g2.load_from_file(file_names[j])
+            g2.load_from_file(f'{data_folder}/{name2}')
             ns = NodeSimilarity(g1, g2, diff_threshold)
             
             title = f'{g1.name}_{g2.name}'
